@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AveiroSmartPark</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="navbar">
+      <div class="logo">
+      <span class="icon">🅿️</span> <span class="logo-text">AveiroSmartPark</span>
+      </div>
+      <ul class="nav-links">
+      <li><a href="main.html">Home</a></li>
+      <li><a href="reservas.html">Reservas</a></li>
+      <li><a href="#" class="user-info">Manuel Goucha <img src="user.png" alt="Ícone de Utilizador" class="user-icon"></a></li>
+      </ul>
+    </nav>
+    <div class="content">
+      <div class="text">
+        <p class="welcome">Bem-vindo!</p>
+        <h1 class="title">AveiroSmartPark</h1>
+        <p class="subtitle">Estacione com inteligência, explore com tranquilidade.<br>
+        Aproveite cada momento sem preocupações.</p>
+      </div>
+      
+      <div class="form-container">
+        <p class="call-to-action">Reserve Agora!</p>
+        <form class="reservation-form">
+          <div class="form-group">
+            <label for="local">Localização</label>
+            <select id="local">
+
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="checkin">CHECK IN</label>
+            <input type="date" id="checkin" value="2025-04-20">
+          </div>
+          <div class="form-group">
+            <label for="horaentrada">Hora de Entrada</label>
+            <select id="horaentrada">
+              <option>06:00</option>
+              <option>07:00</option>
+              <option>08:00</option>
+              <option>09:00</option>
+              <option>10:00</option>
+              <option>11:00</option>
+              <option>12:00</option>
+              <option>13:00</option>
+              <option>14:00</option>
+              <option>15:00</option>
+              <option>16:00</option>
+              <option>17:00</option>
+              <option>18:00</option>
+              <option>19:00</option>
+              <option>20:00</option>
+              <option>21:00</option>
+              <option>22:00</option>
+              <option>23:00</option>
+              
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="checkout">CHECK OUT</label>
+            <select id="checkout">
+              <option>06:00</option>
+              <option>07:00</option>
+              <option>08:00</option>
+              <option>09:00</option>
+              <option>10:00</option>
+              <option>11:00</option>
+              <option>12:00</option>
+              <option>13:00</option>
+              <option>14:00</option>
+              <option>15:00</option>
+              <option>16:00</option>
+              <option>17:00</option>
+              <option>18:00</option>
+              <option>19:00</option>
+              <option>20:00</option>
+              <option>21:00</option>
+              <option>22:00</option>
+              <option>23:00</option>
+              
+            </select>
+          </div>
+          <button type="submit" class="reserve-btn">Reserve</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <section class="benefits">
+    <div class="benefits-top">
+      <span>Mobilidade Conveniência Conforto Tempo Rapidez</span>
+    </div>
+
+    <div class="benefits-content">
+      <div class="benefit-item">
+        <img src="flexibilidade.png" alt="Ícone de Flexibilidade" />
+        <h3>Desfrute de flexibilidade</h3>
+        <p>Ajuste os detalhes conforme necessário. A sua viagem, moldada pelas suas preferências</p>
+      </div>
+      <div class="benefit-item">
+        <img src="tempo.png" alt="Ícone de Tempo" />
+        <h3>Chegue sempre a tempo</h3>
+        <p>Informação em tempo real para uma reserva sem surpresas.</p>
+      </div>
+      <div class="benefit-item">
+        <img src="mao.png" alt="Ícone de Mão" />
+        <h3>Na palma da sua mão</h3>
+        <p>Acesso instantâneo e simplificado para uma experiência sem preocupações.</p>
+      </div>
+    </div>
+
+    <div class="benefits-bottom">
+      <span>🚗</span>
+      <strong>OS NOSSOS PARQUES</strong>
+      <span>🚗</span>
+    </div>
+  </section>
+
+  <section class="map-section">
+    <h2>Mapa de Estacionamento em Aveiro</h2>
+    <div id="map"></div>
+  </section>
+
+  <!-- JS Leaflet -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <script src="animation.js"></script>
+
+  <section class="report-problem">
+    <div class="report-container">
+      <div class="report-text">
+        <h2 class="report-title">AveiroSmartPark</h2>
+        <p>Reportar um problema:</p>
+        <div class="report-form">
+          <input type="text" placeholder="Escreva aqui..." />
+          <button type="submit" class="send-button">➤</button>
+        </div>
+      </div>
+      <div class="report-icon">
+        <img src="carro-amarelo.png" alt="Ícone de carro" />
+      </div>
+    </div>
+  </section>
+  
+  <script src="animation.js"></script>
+
+
+<script>
+  // Quando o usuário clicar no botão "Reserve", mostrar o pop-up de pagamento
+  document.querySelector('.reserve-btn').addEventListener('click', function(e) {
+    e.preventDefault(); // Impedir o envio do formulário
+    
+    // Obter os valores do formulário
+    const local = document.getElementById('local').value;
+    const dataInput = document.getElementById('checkin').value;
+    const horaEntrada = document.getElementById('horaentrada').value;
+    const horaSaida = document.getElementById('checkout').value;
+    
+    // Formatar a data para o formato DD/MM/YYYY
+    const dataObj = new Date(dataInput);
+    const dia = String(dataObj.getDate()).padStart(2, '0');
+    const mes = String(dataObj.getMonth() + 1).padStart(2, '0');
+    const ano = dataObj.getFullYear();
+    const dataFormatada = `${dia}/${mes}/${ano}`;
+    
+    // Calcular o preço com base no tempo de estacionamento
+    let preco = calcularPreco(horaEntrada, horaSaida, local);
+    
+    // Chamar a função de pop-up de pagamento com os parâmetros dinâmicos
+    showPaymentPopup(local, dataFormatada, horaEntrada, horaSaida, preco);
+  });
+  
+  // Função para calcular o preço com base no tempo e local
+  function calcularPreco(horaEntrada, horaSaida, local) {
+    // Converter horas para números
+    const inicio = parseInt(horaEntrada.split(':')[0]);
+    const fim = parseInt(horaSaida.split(':')[0]);
+    
+    // Calcular a duração em horas
+    let horas = fim - inicio;
+    if (horas < 0) horas += 24; // Caso o horário de saída seja no dia seguinte
+    
+    // Preço base por hora dependendo do local
+    let precoPorHora = 1.00;
+    if (local.includes("Campus")) {
+      precoPorHora = 0.75; // Preço mais baixo para o campus
+    } else if (local.includes("Estação")) {
+      precoPorHora = 1.25; // Preço mais alto perto da estação
+    }
+    
+    // Calcular preço total (arredondado para 2 casas decimais)
+    let precoTotal = (horas * precoPorHora).toFixed(2);
+    
+    return precoTotal;
+  }
+</script>
+
+</body>
+</html>

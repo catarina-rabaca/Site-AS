@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AveiroSmartPark - Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .left {
+      width: 40%;
+      background-color: #000;
+      color: #fff;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .logo {
+      font-size: 40px;
+      font-weight: bold;
+      color: #FFC400;
+      margin-bottom: 40px;
+    }
+
+    .logo span {
+      color: white;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+
+    label {
+      margin-top: 15px;
+      margin-bottom: 5px;
+      display: block;
+      font-weight: bold;
+    }
+
+    input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      background-color: #000;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    input::placeholder {
+      color: #aaa;
+    }
+
+    .btn-primary, .btn-secondary {
+      margin-top: 20px;
+      background-color: #FFC400;
+      color: black;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover, .btn-secondary:hover {
+      background-color: #e0b000;
+      transform: scale(1.03);
+    }
+
+    .divider {
+      border-top: 1px solid #ccc;
+      margin: 30px 0;
+    }
+
+    .signup-text {
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .right {
+      width: 60%;
+      background: url("https://www.nacionalidadeportuguesa.com.br/wp-content/uploads/2020/09/aveiro-portugal.png") no-repeat center center;
+      background-size: cover;
+    }
+
+
+    
+
+    .loader {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: black;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+.car {
+  font-size: 48px;
+  animation: spinCar 1s linear infinite;
+}
+
+@keyframes spinCar {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+  </style>
+</head>
+<body>
+  <div class="loader" id="loader">
+    <div class="car">🚗</div>
+  </div>
+
+  <div class="left">
+    <div class="logo">
+      <span>🅿️</span> Aveiro<span>SmartPark</span>
+    </div>
+    <h2>Bem-vindo de volta!</h2>
+
+    <label for="email">Nome de Utilizador/Email:</label>
+    <input type="email" id="email" placeholder="Ex: example@gmail.com" />
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" placeholder="Escreva a sua senha..." />
+
+    <button class="btn-primary" onclick="login()">Inicie sessão</button>
+
+    <div class="divider"></div>
+
+    <div class="signup-text">
+      Ainda não tem conta?<br />
+      Registe-se aqui:
+    </div>
+    <button class="btn-secondary">Criar Conta</button>
+  </div>
+
+  <div class="right"></div>
+
+  <script>
+    function login() {
+      document.getElementById('loader').style.display = 'flex';
+      setTimeout(() => {
+        window.location.href = 'main.html';
+      }, 1000); // Simula carregamento
+    }
+  </script>
+</body>
+</html>
