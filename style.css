@@ -7,6 +7,8 @@
 body {
   font-family: 'Poppins', sans-serif;
   color: #fff;
+  overflow-x: hidden;
+  margin-right: -20px; /* Remove o espaçamento lateral */
 }
 
 .hero {
@@ -283,8 +285,6 @@ label {
   text-align: center;
   padding: 40px 20px;
   font-family: 'Poppins', sans-serif;
-  /*espaçamento entre as palavras*/
-  margin-right: -20px;
 
 }
 
@@ -314,12 +314,10 @@ label {
   flex-wrap: wrap;
   gap: 40px;
   background-color: #f5e8a6;
-  padding: 40px 0; /* Remove as margens laterais */
-  margin: 0; /* Remove qualquer margem */
-  width: 100vw; /* Garante que ocupa toda a largura da tela */
-  margin-left: -20px; /* Remove o espaçamento lateral */
-  margin-right: -20px;
-
+  padding: 40px; /* Adiciona padding igual em todas as bordas */
+  margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
+  max-width: 1200px; /* Define uma largura máxima para manter margens iguais */
+  box-sizing: border-box; /* Inclui padding e borda no cálculo da largura */
 }
 
 .benefit-item {
@@ -426,7 +424,8 @@ label {
 .report-icon img {
   width: 190px;
   height: auto;
-  margin-top: 20px;
+  margin-top: 55px;
+  padding:20px;
 }
 
 /* POP-UP GERAL */
@@ -516,6 +515,8 @@ label {
   padding: 20px;
   max-width: 90%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: #ffefba;
+  color: #000000;
 }
 
 .payment-box {
@@ -699,12 +700,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   height: 90px; /* Ajusta a altura proporcionalmente */
   margin-right: 5px; /* Espaçamento entre a imagem e o texto */
 }
-
-
-
-
-
-
 
 .ver-reservas-btn {
   background-color: #0079FF;

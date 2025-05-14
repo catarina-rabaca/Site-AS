@@ -9,7 +9,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  const map = L.map('map').setView([40.6405, -8.6538], 16);
+  const map = L.map('map', {
+    scrollWheelZoom: false
+  }).setView([40.6405, -8.6538], 16);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'

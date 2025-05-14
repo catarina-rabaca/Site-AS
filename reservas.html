@@ -156,7 +156,7 @@
     .sem-reservas {
       text-align: center;
       padding: 50px;
-      background-color: #f9f9f9;
+      background-color: #ffcc00;
       border-radius: 8px;
       margin-top: 30px;
     }
@@ -214,8 +214,9 @@
     }
     
     .btn-voltar {
-      background-color: #f0f0f0;
-      color: #333;
+      background-color: #ffefba;
+      color: #000000;
+      border: 1px solid #000000; /* Adiciona uma borda preta */
     }
     
     .btn-voltar:hover {
@@ -238,7 +239,7 @@
   </header>
 
   <div class="reservas-header">
-    <h1>Minhas Reservas</h1>
+    <h1 style="color: #ffcc00;">As Suas Reservas</h1>
   </div>
 
   <div class="reservas-container">
@@ -250,7 +251,7 @@
     <div id="sem-reservas" class="sem-reservas" style="display: none;">
       <h3>Você ainda não tem reservas ativas</h3>
       <p>Faça sua primeira reserva para aproveitar os estacionamentos em Aveiro</p>
-      <a href="index.html" class="btn-nova-reserva">Fazer Reserva</a>
+      <a href="main.html" class="btn-nova-reserva">Fazer Reserva</a>
     </div>
   </div>
 
@@ -345,9 +346,9 @@
       popupOverlay.innerHTML = `
         <div class="popup-box">
           <h3>Cancelar Reserva</h3>
-          <p>Tem certeza que deseja cancelar a reserva no parque "${reserva.local}"?</p>
+          <p>Tem certeza que deseja cancelar esta reserva?</p>
           <div class="confirm-actions">
-            <button class="btn-voltar" onclick="this.parentElement.parentElement.parentElement.remove()">Voltar</button>
+            <button class="btn-voltar" onclick="this.parentElement.parentElement.parentElement.remove()">Manter Reserva</button>
             <button class="btn-confirmar" onclick="cancelarReserva(${index})">Sim, Cancelar</button>
           </div>
         </div>
@@ -391,5 +392,25 @@
       popupOverlay.style.display = 'flex';
     }
   </script>
+
+<section class="report-problem">
+  <div class="report-container">
+    <div class="report-text">
+      <h2 class="report-title">AveiroSmartPark</h2>
+      <p>Reportar um problema:</p>
+      <div class="report-form">
+        <input type="text" placeholder="Escreva aqui..." />
+        <button type="submit" class="send-button">➤</button>
+      </div>
+    </div>
+    <div class="report-icon">
+      <img src="carro-amarelo.png" alt="Ícone de carro" />
+    </div>
+  </div>
+</section>
+
+<script src="animation.js"></script>
+
+
 </body>
 </html>
