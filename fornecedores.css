@@ -1,0 +1,206 @@
+/* Estilo do Slider - Atualizado com o novo design */
+.fornecedores {
+    color: white;
+}
+
+/* Estilo do Slider */
+.slider-section {
+  padding: 40px 0;
+  background-color: #1a1a1a; /* Fundo escuro como na imagem */
+  text-align: center;
+  background-image: url('parking-bg.jpg'); /* Opcional: adicionar imagem de fundo */
+  background-size: cover;
+  background-blend-mode: overlay;
+  position: relative;
+}
+
+.slider-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Overlay escuro para o fundo */
+  z-index: 0;
+}
+
+.slider-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #ffcb05; /* Amarelo para o título */
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Adicionar ícones de carros ao título */
+.slider-title::before, .slider-title::after {
+  content: '🚗'; /* Ícone de carro */
+  font-size: 24px;
+}
+
+.slider-container {
+  position: relative;
+  overflow: hidden; /* Corrigido de visible para hidden */
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 60px;
+  z-index: 1;
+}
+
+
+.slider-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  overflow: hidden; /* Mantém os slides contidos */
+  position: relative;
+  z-index: 1;
+}
+
+.slide {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Define o estado de invisibilidade para slides não ativos */
+.slide.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Para telas que podem acomodar múltiplos slides */
+@media (min-width: 768px) {
+  .slide {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 992px) {
+  .slide {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+.card {
+  background-color: #ffeeb3; /* Fundo amarelo claro como na imagem */
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-size: 16px;
+  margin: 5px 0;
+  color: #333;
+  text-align: left;
+}
+
+.info {
+  font-size: 13px;
+  color: #555;
+  margin: 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-align: left;
+}
+
+.info i {
+  color: #777;
+  font-size: 12px;
+}
+
+.price {
+  margin-top: 8px;
+  font-weight: bold;
+  color: #333;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price-label {
+  font-weight: normal;
+  color: #555;
+}
+
+.price-value {
+  font-weight: bold;
+}
+
+.price span {
+  font-weight: normal;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Setas */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 2px solid #ffcb05;
+  font-size: 30px;
+  padding: 15px 10px;
+  cursor: pointer;
+  color: #ffcb05;
+  z-index: 10; /* Aumentado para garantir que fique por cima de tudo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.arrow.left {
+  left: 20px;
+  border-radius: 0 5px 5px 0;
+}
+
+.arrow.right {
+  right: 10px;
+  border-radius: 5px 0 0 5px;
+}
+
+.arrow:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* Efeito de hover para as setas */
+.arrow:hover:not(:disabled) {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+}

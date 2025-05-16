@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AveiroSmartPark</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="fornecedores.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="navbar">
+      <div class="logo">
+        <span class="icon">🅿️</span> <span class="logo-text">AveiroSmartPark</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="main.html">Home</a></li>
+        <li><a href="reservas.html">Reservas</a></li>
+        <li><a href="#" class="user-info">Fornecedores <img src="user.png" alt="Ícone de Utilizador" class="user-icon"></a></li>
+      </ul>
+    </nav>
+    <div class="content">
+      <div class="text">
+        <p class="welcome">Bem-vindo!</p>
+        <h1 class="title">AveiroSmartPark <span class="fornecedores">Fornecedores</span></h1>
+        <p class="subtitle">Parcerias que impulsionam o lazer, juntos construímos momentos inesquecíveis.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Slider de Parques -->
+  <section class="slider-section">
+    <h2 class="slider-title">OS SEUS PARQUES</h2>
+    <button class="arrow left" id="prevBtn">&#10094;</button>
+    <div class="slider-container">
+      <div class="slider-wrapper" id="slider">
+        <div class="slide">
+          <div class="card">
+            <img src="parque1.jpg" alt="Parque 1">
+            <h3>Parque dos Moliceiros</h3>
+            <div class="info"><i class="fas fa-users"></i> Lotação máxima: 200</div>
+            <div class="info"><i class="fas fa-parking"></i> Lugares Ocupados: 122</div>
+            <div class="price">
+              <span class="price-label">Preço</span>
+              <span class="price-value">1€<span>/hora</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="card">
+            <img src="parque2.jpg" alt="Parque 2">
+            <h3>Parque das Salinas</h3>
+            <div class="info"><i class="fas fa-users"></i> Lotação máxima: 300</div>
+            <div class="info"><i class="fas fa-parking"></i> Lugares Ocupados: 222</div>
+            <div class="price">
+              <span class="price-label">Preço</span>
+              <span class="price-value">2€<span>/hora</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="card">
+            <img src="parque3.jpg" alt="Parque 3">
+            <h3>Parque do Rossio</h3>
+            <div class="info"><i class="fas fa-users"></i> Lotação máxima: 50</div>
+            <div class="info"><i class="fas fa-parking"></i> Lugares Ocupados: 50</div>
+            <div class="price">
+              <span class="price-label">Preço</span>
+              <span class="price-value">2,5€<span>/hora</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="card">
+            <img src="parque4.jpg" alt="Parque 4">
+            <h3>Parque da Praça</h3>
+            <div class="info"><i class="fas fa-users"></i> Lotação máxima: 80</div>
+            <div class="info"><i class="fas fa-parking"></i> Lugares Ocupados: 32</div>
+            <div class="price">
+              <span class="price-label">Preço</span>
+              <span class="price-value">2€<span>/hora</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="arrow right" id="nextBtn">&#10095;</button>
+    </div>
+  </section>
+
+  <section class="report-problem">
+    <div class="report-container">
+      <div class="report-text">
+        <h2 class="report-title">AveiroSmartPark</h2>
+        <p>Reportar um problema:</p>
+        <div class="report-form">
+          <input type="text" placeholder="Escreva aqui..." />
+          <button type="submit" class="send-button">➤</button>
+        </div>
+      </div>
+      <div class="report-icon">
+        <img src="carro-amarelo.png" alt="Ícone de carro" />
+      </div>
+    </div>
+  </section>
+
+  <script src="animation.js"></script>
+  <script>
+  const slider = document.getElementById('slider');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  // Count the actual slides
+  const totalSlides = slider.querySelectorAll('.slide').length;
+  let currentIndex = 0;
+
+  function updateSlider() {
+    // Get the width of a single slide
+    const slideWidth = slider.querySelector('.slide').offsetWidth;
+    
+    // Calculate how much to move the slider
+    const moveX = slideWidth * currentIndex;
+    slider.style.transform = `translateX(-${moveX}px)`;
+
+    // Update button states
+    prevBtn.disabled = currentIndex === 0;
+    nextBtn.disabled = currentIndex >= totalSlides - 1;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSlider();
+    }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (currentIndex < totalSlides - 1) {
+      currentIndex++;
+      updateSlider();
+    }
+  });
+
+  // Initialize the slider
+  window.addEventListener('resize', updateSlider);
+  window.addEventListener('load', updateSlider);
+  </script>
+</body>
+</html>

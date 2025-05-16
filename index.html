@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AveiroSmartPark - Login</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <script src="login.js" defer></script>
   <style>
     * {
       box-sizing: border-box;
@@ -53,7 +54,7 @@
       font-weight: bold;
     }
 
-    input[type="email"], input[type="password"] {
+    input[type="email"], input[type="password"], input[type="text"], input[type="number"], select {
       width: 100%;
       padding: 12px;
       border: 2px solid #ccc;
@@ -102,9 +103,6 @@
       background-size: cover;
     }
 
-
-    
-
     .loader {
       display: none;
       position: fixed;
@@ -118,16 +116,15 @@
       z-index: 9999;
     }
 
-.car {
-  font-size: 48px;
-  animation: spinCar 1s linear infinite;
-}
+    .car {
+      font-size: 48px;
+      animation: spinCar 1s linear infinite;
+    }
 
-@keyframes spinCar {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
+    @keyframes spinCar {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body>
@@ -155,17 +152,93 @@
       Ainda não tem conta?<br />
       Registe-se aqui:
     </div>
-    <button class="btn-secondary">Criar Conta</button>
+    <button class="btn-secondary" onclick="openRegister()">Criar Conta</button>
   </div>
 
   <div class="right"></div>
+
+  <!-- Modal de Registo -->
+  <div id="registerModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:10000;">
+    <div style="background:white; padding:30px; border-radius:15px; width:90%; max-width:600px; color: black; max-height:90vh; overflow-y:auto;">
+      <h2>Criar Conta</h2>
+
+      <label>Nome de Utilizador:</label>
+      <input type="text" id="regUsername" placeholder="Ex: joaosilva" />
+
+      <label>Email:</label>
+      <input type="email" id="regEmail" placeholder="Email..." />
+
+      <label>Senha:</label>
+      <input type="password" id="regPassword" placeholder="Senha..." />
+
+      <label>Tipo de utilizador:</label>
+      <select id="regRole" onchange="handleRoleChange()">
+        <option value="">-- Selecionar --</option>
+        <option value="condutor">Condutor</option>
+        <option value="fornecedor">Fornecedor</option>
+      </select>
+
+      <div id="fornecedorSection" style="display:none;">
+        <label>Número de parques:</label>
+        <input type="number" id="numParques" min="1" max="10" placeholder="Ex: 2" onchange="generateParkFields()" />
+
+        <div id="parkFieldsContainer"></div>
+      </div>
+
+      <button class="btn-primary" onclick="alert('Registo concluído')">Registar</button>
+      <button class="btn-secondary" onclick="closeRegister()">Cancelar</button>
+    </div>
+  </div>
 
   <script>
     function login() {
       document.getElementById('loader').style.display = 'flex';
       setTimeout(() => {
         window.location.href = 'main.html';
-      }, 1000); // Simula carregamento
+      }, 1000);
+    }
+
+    function openRegister() {
+      const modal = document.getElementById("registerModal");
+      modal.style.display = "flex";
+      modal.style.justifyContent = "center";
+      modal.style.alignItems = "center";
+    }
+
+    function closeRegister() {
+      document.getElementById("registerModal").style.display = "none";
+    }
+
+    function handleRoleChange() {
+      const role = document.getElementById("regRole").value;
+      const section = document.getElementById("fornecedorSection");
+      section.style.display = (role === "fornecedor") ? "block" : "none";
+      if (role !== "fornecedor") {
+        document.getElementById("parkFieldsContainer").innerHTML = '';
+        document.getElementById("numParques").value = '';
+      }
+    }
+
+    function generateParkFields() {
+      const container = document.getElementById("parkFieldsContainer");
+      container.innerHTML = '';
+      const num = parseInt(document.getElementById("numParques").value);
+
+      if (!isNaN(num) && num > 0) {
+        for (let i = 1; i <= num; i++) {
+          const div = document.createElement('div');
+          div.innerHTML = `
+            <h4>Parque ${i}</h4>
+            <label>Nome do Parque:</label>
+            <input type="text" placeholder="Ex: Parque Central ${i}" />
+            <label>Localização:</label>
+            <input type="text" placeholder="Ex: Aveiro" />
+            <label>Número de lugares:</label>
+            <input type="number" placeholder="Ex: 50" />
+          `;
+          container.appendChild(div);
+        }
+      }
     }
   </script>
 </body>
