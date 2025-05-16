@@ -280,7 +280,7 @@ label {
 }
 
 .benefits {
-  background-color: #fdd835; /* amarelo vibrante */
+  background-color: #ffcc00; /* amarelo vibrante */
   color: black;
   text-align: center;
   padding: 40px 20px;
@@ -313,11 +313,13 @@ label {
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 40px;
-  background-color: #f5e8a6;
+  background-color: rgba(245, 232, 166, 0.8); /* Adiciona transparência ao fundo */
   padding: 40px; /* Adiciona padding igual em todas as bordas */
   margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
   max-width: 1200px; /* Define uma largura máxima para manter margens iguais */
   box-sizing: border-box; /* Inclui padding e borda no cálculo da largura */
+  border-radius: 20px; /* Adiciona bordas arredondadas */
+  backdrop-filter: blur(10px); /* Adiciona blur ao fundo */
 }
 
 .benefit-item {
@@ -342,7 +344,7 @@ label {
 }
 
 .benefits-bottom {
-  background-color: #fdd835;
+  background-color: #ffcc00;
   font-weight: 700;
   font-size: 22px;
   padding-top: 30px;
@@ -519,10 +521,15 @@ label {
   color: #000000;
 }
 
+.span{
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+}
+
 .payment-box {
-  background-color: #202020;
+  background-color: #ffefba; 
   width: 500px;
-  border: 2px solid #e0e0e0;
 }
 
 .payment-box h2 {
@@ -537,13 +544,13 @@ label {
   display: flex;
   align-items: center;
   margin-bottom: 15px;
-  color: #ffcc00;
+  color: #000000;
 
 }
 
 .parking-image {
-  width: 100px;
-  height: 80px;
+  width: 80px;
+  height: 100px;
   border-radius: 10px;
   object-fit: cover;
   margin-right: 15px;
@@ -553,7 +560,7 @@ label {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
-  color: #ffcc00;
+  color: #000000;
   font-size: 15px;
 }
 
@@ -565,18 +572,20 @@ label {
   flex-grow: 1;
   font-family: 'Poppins', sans-serif;
   font-size: 18px;
+  max-width: 150px;
 }
 
-/* 🆕 Destaque no preço */
+/* Destaque no preço */
 .total-price {
   font-weight: 700;
   font-size: 22px;
   font-family: 'Poppins', sans-serif;
-  color: #ffffff;
+  color: #000000;
   text-align: right;
   margin-bottom: 20px;
   margin-top: -5px;
   margin-right: 15px;
+  max-width: 100px;
 }
 
 .form-group {
@@ -615,9 +624,9 @@ label {
 }
 
 .cancel-btn {
-  background-color: #fff;
-  color: #d32f2f;
-  border: 1px solid #d32f2f;
+  background-color: #dd0000;
+  color: #fdfafa;
+  border: 1px solid #dd0000;
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 5px;
@@ -647,7 +656,7 @@ label {
 }
 
 .cancel-btn:hover {
-  background-color: #d32f2f;
+  background-color: #b90404;
   transform: scale(1.03); /* Aumenta ligeiramente o botão ao passar o mouse */
   color: #ffeeee
   
@@ -672,7 +681,19 @@ label {
 }
 
 
+.ok-btn {
+  background-color: #ffefba;
+  color: #000000;
+  border: none;
+  border-radius: 3px;
+  font-weight: bold; /* Adiciona negrito às letras */
+}
 
+.ok-btn:hover {
+  background-color: #ddd;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
 .time-selector {
   display: flex;
@@ -702,7 +723,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .ver-reservas-btn {
-  background-color: #0079FF;
+  background-color: #2e7d32;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -710,10 +731,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
   font-weight: 600;
   transition: background-color 0.3s;
+  max-width: 50%;
 }
 
 .ver-reservas-btn:hover {
-  background-color: #005bb9;
+  background-color: #1b5e20;
 }
 
 /* Estilo para o número do lugar na confirmação */

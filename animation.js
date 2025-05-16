@@ -357,41 +357,21 @@ function finalizarPagamento(local, data, horaEntrada, horaSaida, preco, parkingI
   
   // Guardar no localStorage
   localStorage.setItem('reservas', JSON.stringify(reservas));
-
   // Criar popup de confirmação
   let popupOverlay = document.createElement('div');
   popupOverlay.className = 'popup-overlay confirmation-popup';
-  popupOverlay.innerHTML = ` 
-    <div class="popup-box confirmation-box"> 
-      <h2>Reserva Confirmada!</h2>
-
-      <div class="confirmation-info">
-          <img src="${parkingImage}" class="parking-image" alt="Parque de estacionamento">
-          <div class="info-text">
-              <div class="location-container">
-                  <span class="location-icon"></span>
-                  <span>${local}</span>
-              </div>
-              <div>${data}</div>
-              <div>${horaEntrada} - ${horaSaida}</div>
-              <div class="reservation-number">RESERVA Nº: ${numeroReserva}</div>
-              <div>LUGAR: ${lugarEstacionamento}</div>
-          </div>
-          <div class="total-price">TOTAL PAGO: ${preco}€</div>
-      </div>
-      
+  popupOverlay.innerHTML = `
+    <div class="popup-box confirmation-box" style="margin-top: 0vh;"> 
+      <h2>Reserva Concluída!</h2>
       <div class="confirmation-message">
-          <p>A sua reserva foi confirmada com sucesso! Guarde o número de reserva.</p>
-          <p>Receberá um e-mail com os detalhes da sua reserva.</p>
+          <p>A sua reserva foi concluída com sucesso!</p>
       </div>
-      
-      <div class="buttons-container">
-          <button class="ok-btn" onclick="this.parentElement.parentElement.parentElement.remove()">OK</button>
-          <button class="ver-reservas-btn" onclick="window.location.href='reservas.html'">Ver Minhas Reservas</button>
+      <div class="buttons-container" style="display: flex; gap: 10px;">
+          <button class="ok-btn" style="flex: 1; width: 80px;" onclick="this.parentElement.parentElement.parentElement.remove()">Fechar</button>
+          <button class="ver-reservas-btn" style="flex: 1; width: 50px;" onclick="window.location.href='reservas.html'">Ver Reservas</button>
       </div>
     </div>
   `;
-  
   document.body.appendChild(popupOverlay);
   popupOverlay.style.display = 'flex';
 }
