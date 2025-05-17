@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   const map = L.map('map', {
+    attributionControl: false,
     scrollWheelZoom: false
   }).setView([40.6405, -8.6538], 16);
 
@@ -105,6 +106,26 @@ if (document.querySelector('.send-button')) {
       btn.classList.remove('spin');
       btn.textContent = '✔️';
       showReportPopup("O seu relatório foi enviado para a administração.");
+    }, 600);
+  });
+}
+
+// POP-UP de Avisos
+if (document.querySelector('.send-button-admin')) {
+  document.querySelector('.send-button-admin').addEventListener('click', function (e) {
+    e.preventDefault();
+    const btn = this;
+    btn.disabled = true;
+    btn.classList.add('spin');
+
+    // Adicionar estilo de rotação
+    btn.style.transition = 'transform 0.6s ease';
+    btn.style.transform = 'rotate(360deg)';
+
+    setTimeout(() => {
+      btn.classList.remove('spin');
+      btn.textContent = '✔️';
+      showReportPopup("O seu aviso foi publicado.");
     }, 600);
   });
 }

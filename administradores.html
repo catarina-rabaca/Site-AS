@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AveiroSmartPark</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="fornecedores.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="navbar">
+      <div class="logo">
+        <span class="icon">🅿️</span> <span class="logo-text">AveiroSmartPark</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="administradores.html">Home</a></li>
+        <li><a href="#" onclick="event.preventDefault();">Feedback</a></li>
+        <li><a href="index.html" class="user-info">Administrador <img src="user.png" alt="Ícone de Utilizador" class="user-icon"></a></li>
+      </ul>
+    </nav>
+    <div class="content">
+      <div class="text">
+        <p class="welcome">Bem-vindo!</p>
+        <h1 class="title">AveiroSmartPark<span class="fornecedores" style="font-size: 0.8em; margin-left: 10px;">Administradores</span></h1>
+        <p class="subtitle">A eficácia, ambição e esforço que nos une.<br>
+          Liderança na gestão, excelência no suporte.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="benefits">
+    <div class="benefits-top">
+      <span>Administração</span>
+    </div>
+  </section>
+
+  <!-- JS Leaflet -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <script src="animation.js"></script>
+
+  <section class="report-problem">
+    <div class="report-container">
+      <div class="report-text">
+        <h2 class="report-title">AveiroSmartPark</h2>
+        <p>Avisar a comunidade:</p>
+        <div class="report-form">
+          <input type="text" placeholder="Escreva aqui..." />
+          <button type="submit" class="send-button-admin">➤</button>
+        </div>
+      </div>
+      <div class="report-icon">
+        <img src="carro-amarelo.png" alt="Ícone de carro" />
+      </div>
+    </div>
+  </section>
+  
+  <script src="animation.js"></script>
+
+</body>
+</html>

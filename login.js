@@ -6,8 +6,10 @@ function login() {
   loader.style.display = 'flex';
 
   setTimeout(() => {
-    if (email === 'administrador' || email === 'administrador@gmail.com') {
+    if (email === 'fornecedor' || email === 'fornecedor@gmail.com') {
       window.location.href = 'fornecedores.html';
+    }else if(email === 'administrador' || email === 'administrador@gmail.com'){
+      window.location.href = 'administradores.html';s
     } else {
       window.location.href = 'main.html';
     }

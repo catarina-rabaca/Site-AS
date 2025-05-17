@@ -5,12 +5,13 @@
 
 /* Estilo do Slider */
 .slider-section {
-  padding: 40px 0;
+  padding: 20px 0; /* Reduz o padding para aproximar a imagem de fundo */
+  padding-top: 0;
   background-color: #1a1a1a; /* Fundo escuro como na imagem */
   text-align: center;
-  background-image: url('parking-bg.jpg'); /* Opcional: adicionar imagem de fundo */
+  background-image: url('parque2.jpg'); /* Opcional: adicionar imagem de fundo */
   background-size: cover;
-  background-blend-mode: overlay;
+  background-position: center; /* Ajusta a posição da imagem para o centro */
   position: relative;
 }
 
@@ -26,17 +27,20 @@
 }
 
 .slider-title {
+  background-color: rgba(255, 204, 0, 0.8); /* Fundo amarelo com mais transparência */
   font-size: 28px;
   font-weight: 600;
+  padding-top: 20px;
+  padding-bottom: 20px;
   margin-bottom: 20px;
-  color: #ffcb05; /* Amarelo para o título */
+  color: #000000; /* Amarelo para o título */
   text-transform: uppercase;
   position: relative;
   z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
 }
 
 /* Adicionar ícones de carros ao título */
@@ -47,11 +51,13 @@
 
 .slider-container {
   position: relative;
-  overflow: hidden; /* Corrigido de visible para hidden */
+  overflow: visible; /* Corrigido de visible para hidden */
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 60px;
   z-index: 1;
+  margin-top: 70px; /* Adiciona espaço acima do slider */
+  margin-bottom: 50px; /* Adiciona espaço abaixo do slider */
 }
 
 
@@ -59,7 +65,7 @@
   display: flex;
   transition: transform 0.5s ease-in-out;
   width: 100%;
-  overflow: hidden; /* Mantém os slides contidos */
+  overflow: visible; /* Mantém os slides contidos */
   position: relative;
   z-index: 1;
 }
@@ -71,6 +77,7 @@
   box-sizing: border-box;
   opacity: 1;
   transition: opacity 0.3s ease;
+  height: 200%; /* Aumenta ligeiramente a altura */
 }
 
 /* Define o estado de invisibilidade para slides não ativos */
@@ -95,7 +102,7 @@
 }
 
 .card {
-  background-color: #ffeeb3; /* Fundo amarelo claro como na imagem */
+  background-color: rgba(255, 238, 179, 0.8); /* Fundo amarelo claro com transparência */
   border-radius: 12px;
   padding: 15px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
