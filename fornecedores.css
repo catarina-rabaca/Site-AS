@@ -1,213 +1,287 @@
 /* Estilo do Slider - Atualizado com o novo design */
 .fornecedores {
-    color: white;
+  color: white;
 }
 
 /* Estilo do Slider */
 .slider-section {
-  padding: 20px 0; /* Reduz o padding para aproximar a imagem de fundo */
-  padding-top: 0;
-  background-color: #1a1a1a; /* Fundo escuro como na imagem */
-  text-align: center;
-  background-image: url('parque2.jpg'); /* Opcional: adicionar imagem de fundo */
-  background-size: cover;
-  background-position: center; /* Ajusta a posição da imagem para o centro */
-  position: relative;
+padding: 20px 0; /* Reduz o padding para aproximar a imagem de fundo */
+padding-top: 0;
+background-color: #1a1a1a; /* Fundo escuro como na imagem */
+text-align: center;
+background-image: url('parque2.jpg'); /* Opcional: adicionar imagem de fundo */
+background-size: cover;
+background-position: center; /* Ajusta a posição da imagem para o centro */
+position: relative;
 }
 
 .slider-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7); /* Overlay escuro para o fundo */
-  z-index: 0;
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: rgba(0, 0, 0, 0.7); /* Overlay escuro para o fundo */
+z-index: 0;
 }
 
 .slider-title {
-  background-color: rgba(255, 204, 0, 0.8); /* Fundo amarelo com mais transparência */
-  font-size: 28px;
-  font-weight: 600;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  color: #000000; /* Amarelo para o título */
-  text-transform: uppercase;
-  position: relative;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
+background-color: rgba(255, 204, 0, 0.8); /* Fundo amarelo com mais transparência */
+font-size: 28px;
+font-weight: 600;
+padding-top: 20px;
+padding-bottom: 20px;
+margin-bottom: 20px;
+color: #000000; /* Amarelo para o título */
+text-transform: uppercase;
+position: relative;
+z-index: 1;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 20px;
 }
 
 /* Adicionar ícones de carros ao título */
 .slider-title::before, .slider-title::after {
-  content: '🚗'; /* Ícone de carro */
-  font-size: 24px;
+content: '🚗'; /* Ícone de carro */
+font-size: 24px;
 }
 
 .slider-container {
-  position: relative;
-  overflow: visible; /* Corrigido de visible para hidden */
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 60px;
-  z-index: 1;
-  margin-top: 70px; /* Adiciona espaço acima do slider */
-  margin-bottom: 50px; /* Adiciona espaço abaixo do slider */
+position: relative;
+overflow: visible;
+max-width: 1100px;
+margin: 0 auto;
+padding: 0 60px;
+z-index: 1;
+margin-top: 70px;
+margin-bottom: 50px;
 }
 
-
 .slider-wrapper {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  width: 100%;
-  overflow: visible; /* Mantém os slides contidos */
-  position: relative;
-  z-index: 1;
+display: flex;
+transition: transform 0.5s ease-in-out;
+width: 100%;
+overflow: visible;
+position: relative;
+z-index: 1;
 }
 
 .slide {
-  flex: 0 0 100%;
-  max-width: 100%;
-  padding: 0 10px;
-  box-sizing: border-box;
-  opacity: 1;
-  transition: opacity 0.3s ease;
-  height: 200%; /* Aumenta ligeiramente a altura */
+flex: 0 0 100%;
+max-width: 100%;
+padding: 0 10px;
+box-sizing: border-box;
+opacity: 1;
+transition: opacity 0.3s ease;
+height: 200%;
 }
 
-/* Define o estado de invisibilidade para slides não ativos */
 .slide.hidden {
-  opacity: 0;
-  pointer-events: none;
+opacity: 0;
+pointer-events: none;
 }
 
-/* Para telas que podem acomodar múltiplos slides */
 @media (min-width: 768px) {
-  .slide {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
+.slide {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
 }
 
 @media (min-width: 992px) {
-  .slide {
-    flex: 0 0 25%;
-    max-width: 25%;
-  }
+.slide {
+  flex: 0 0 25%;
+  max-width: 25%;
+}
 }
 
 .card {
-  background-color: rgba(255, 238, 179, 0.8); /* Fundo amarelo claro com transparência */
-  border-radius: 12px;
-  padding: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  transition: transform 0.2s;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+background-color: rgba(255, 238, 179, 0.8);
+border-radius: 12px;
+padding: 15px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+transition: transform 0.2s;
+height: 100%;
+display: flex;
+flex-direction: column;
 }
 
 .card:hover {
-  transform: scale(1.03);
+transform: scale(1.03);
 }
 
 .card img {
-  width: 100%;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 10px;
+width: 100%;
+height: 100px;
+object-fit: cover;
+border-radius: 8px;
+margin-bottom: 10px;
 }
 
 .card h3 {
-  font-size: 16px;
-  margin: 5px 0;
-  color: #333;
-  text-align: left;
+font-size: 16px;
+margin: 5px 0;
+color: #333;
+text-align: left;
 }
 
 .info {
-  font-size: 13px;
-  color: #555;
-  margin: 4px 0;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  text-align: left;
+font-size: 13px;
+color: #555;
+margin: 4px 0;
+display: flex;
+align-items: center;
+gap: 5px;
+text-align: left;
 }
 
 .info i {
-  color: #777;
-  font-size: 12px;
+color: #777;
+font-size: 12px;
 }
 
 .price {
-  margin-top: 8px;
-  font-weight: bold;
-  color: #333;
-  text-align: left;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+margin-top: 8px;
+font-weight: bold;
+color: #333;
+text-align: left;
+display: flex;
+justify-content: space-between;
+align-items: center;
 }
 
 .price-label {
-  font-weight: normal;
-  color: #555;
+font-weight: normal;
+color: #555;
 }
 
 .price-value {
-  font-weight: bold;
+font-weight: bold;
 }
 
 .price span {
-  font-weight: normal;
-  font-size: 14px;
-  color: #666;
+font-weight: normal;
+font-size: 14px;
+color: #666;
 }
 
-/* Setas */
 .arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.7);
-  border: 2px solid #ffcb05;
-  font-size: 30px;
-  padding: 15px 10px;
-  cursor: pointer;
-  color: #ffcb05;
-  z-index: 10; /* Aumentado para garantir que fique por cima de tudo */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+background-color: rgba(0, 0, 0, 0.7);
+border: 2px solid #ffcb05;
+font-size: 30px;
+padding: 15px 10px;
+cursor: pointer;
+color: #ffcb05;
+z-index: 10;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 40px;
+height: 40px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .arrow.left {
-  left: 20px;
-  border-radius: 0 5px 5px 0;
+left: 20px;
+border-radius: 0 5px 5px 0;
 }
 
 .arrow.right {
-  right: 10px;
-  border-radius: 5px 0 0 5px;
+right: 10px;
+border-radius: 5px 0 0 5px;
 }
 
 .arrow:disabled {
-  opacity: 0.4;
-  cursor: default;
+opacity: 0.4;
+cursor: default;
 }
 
-/* Efeito de hover para as setas */
 .arrow:hover:not(:disabled) {
-  background-color: rgba(0, 0, 0, 0.9);
-  color: white;
+background-color: rgba(0, 0, 0, 0.9);
+color: white;
+}
+
+/* NOVOS ESTILOS PARA A TABELA DE CONDUTORES */
+.tabela-condutores-container {
+background-color: rgba(0, 0, 0, 0.85);
+padding: 20px;
+border-radius: 20px;
+color: white;
+max-width: 1000px;
+margin: auto;
+margin-bottom: 40px;
+overflow-x: auto;
+}
+
+.search-bar {
+display: flex;
+align-items: center;
+margin-bottom: 10px;
+background: #1e1e1e;
+border: 2px solid gold;
+border-radius: 30px;
+padding: 5px 15px;
+}
+
+.search-bar input {
+background: transparent;
+border: none;
+color: white;
+width: 100%;
+padding: 8px;
+outline: none;
+font-family: 'Poppins', sans-serif;
+}
+
+.search-bar i {
+color: gold;
+font-size: 1.2rem;
+}
+
+.condutores-title {
+color: gold;
+font-weight: bold;
+font-size: 1.5rem;
+margin: 20px 0 10px;
+}
+
+.tabela-condutores {
+width: 100%;
+border-collapse: collapse;
+text-align: left;
+}
+
+.tabela-condutores th,
+.tabela-condutores td {
+padding: 15px;
+border-bottom: 1px solid #555;
+}
+
+.perfil-foto {
+width: 45px;
+height: 45px;
+border-radius: 50%;
+object-fit: cover;
+}
+
+.editar-icon,
+.eliminar-icon {
+margin: 0 5px;
+cursor: pointer;
+color: white;
+transition: color 0.3s;
+}
+
+.editar-icon:hover {
+color: gold;
+}
+
+.eliminar-icon:hover {
+color: red;
 }

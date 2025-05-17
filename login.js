@@ -8,8 +8,8 @@ function login() {
   setTimeout(() => {
     if (email === 'fornecedor' || email === 'fornecedor@gmail.com') {
       window.location.href = 'fornecedores.html';
-    }else if(email === 'administrador' || email === 'administrador@gmail.com'){
-      window.location.href = 'administradores.html';s
+    }else if(email === 'administrador' || email === 'administrador@gmail.com' || email === 'admin' || email === 'admin@gmail.com'){
+      window.location.href = 'administradores.html';
     } else {
       window.location.href = 'main.html';
     }

@@ -12,39 +12,170 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
-  <header class="hero">
-    <nav class="navbar">
-      <div class="logo">
-        <span class="icon">🅿️</span> <span class="logo-text">AveiroSmartPark</span>
+  <body>
+    <header class="hero">
+      <nav class="navbar">
+        <div class="logo">
+          <span class="icon">🅿️</span> <span class="logo-text">AveiroSmartPark</span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="administradores.html">Home</a></li>
+          <li><a href="#" onclick="event.preventDefault();">Feedback</a></li>
+          <li><a href="index.html" class="user-info">Administrador <img src="user.png" alt="Ícone de Utilizador" class="user-icon"></a></li>
+        </ul>
+      </nav>
+      <div class="content">
+        <div class="text">
+          <p class="welcome">Bem-vindo!</p>
+          <h1 class="title">AveiroSmartPark<span class="fornecedores" style="font-size: 0.8em; margin-left: 10px;">Administradores</span></h1>
+          <p class="subtitle">A eficácia, ambição e esforço que nos une.<br>
+            Liderança na gestão, excelência no suporte.</p>
+        </div>
       </div>
-      <ul class="nav-links">
-        <li><a href="administradores.html">Home</a></li>
-        <li><a href="#" onclick="event.preventDefault();">Feedback</a></li>
-        <li><a href="index.html" class="user-info">Administrador <img src="user.png" alt="Ícone de Utilizador" class="user-icon"></a></li>
-      </ul>
-    </nav>
-    <div class="content">
-      <div class="text">
-        <p class="welcome">Bem-vindo!</p>
-        <h1 class="title">AveiroSmartPark<span class="fornecedores" style="font-size: 0.8em; margin-left: 10px;">Administradores</span></h1>
-        <p class="subtitle">A eficácia, ambição e esforço que nos une.<br>
-          Liderança na gestão, excelência no suporte.</p>
-      </div>
+    </header>
+
+<!-- Lista de Condutores (Tabela) -->
+<section class="table-section">
+  <h2 class="slider-title" style="text-transform: none;">Administração</h2>
+
+  <div class="tabela-condutores-container">
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Procurar condutor por email/nome..." />
+      <i class="fas fa-search" id="searchButton" style="cursor: pointer;"></i>
     </div>
-  </header>
-
-  <section class="benefits">
-    <div class="benefits-top">
-      <span>Administração</span>
+    <h3 class="condutores-title">Lista de Condutores:</h3>
+    <div class="tabela-condutores-scroll">
+      <table class="tabela-condutores">
+        <thead>
+          <tr>
+            <th>Foto de Perfil</th>
+            <th>Nome de Utilizador</th>
+            <th>Email do condutor</th>
+            <th>Dinheiro Gasto</th>
+            <th>Reservas totais</th>
+            <th>Editar Condutor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><img src="ana_xavier.jpg" alt="Ana Xavier" class="perfil-foto"></td>
+            <td>ana_xavier</td>
+            <td>xavierana@gmail.com</td>
+            <td>9.00 €</td>
+            <td>2</td>
+            <td>
+              <i class="fas fa-pen-to-square editar-icon"></i>
+              <i class="fas fa-trash eliminar-icon"></i>
+            </td>
+          </tr>
+          <tr>
+            <td><img src="joao_nunes.jpg" alt="João Nunes" class="perfil-foto"></td>
+            <td>joao_nunnes</td>
+            <td>joao_p_nunes@gmail.com</td>
+            <td>190.00 €</td>
+            <td>17</td>
+            <td>
+              <i class="fas fa-pen-to-square editar-icon"></i>
+              <i class="fas fa-trash eliminar-icon"></i>
+            </td>
+          </tr>
+          <tr>
+            <td><img src="luisa_cardoso.jpg" alt="Luísa Cardoso" class="perfil-foto"></td>
+            <td>luisa_cardoso</td>
+            <td>cardoso_luisaa@gmail.com</td>
+            <td>40.00 €</td>
+            <td>4</td>
+            <td>
+              <i class="fas fa-pen-to-square editar-icon"></i>
+              <i class="fas fa-trash eliminar-icon"></i>
+            </td>
+          </tr>
+          <tr>
+            <td><img src="ricardo_sousa.jpg" alt="Ricardo Sousa" class="perfil-foto"></td>
+            <td>ricardo_sousa</td>
+            <td>ricardo.sousa88@gmail.com</td>
+            <td>75.50 €</td>
+            <td>6</td>
+            <td>
+              <i class="fas fa-pen-to-square editar-icon"></i>
+              <i class="fas fa-trash eliminar-icon"></i>
+            </td>
+          </tr>
+          <tr>
+            <td><img src="ines_monteiro.jpg" alt="Inês Monteiro" class="perfil-foto"></td>
+            <td>ines_monteiro</td>
+            <td>ines.monteiro22@hotmail.com</td>
+            <td>120.00 €</td>
+            <td>9</td>
+            <td>
+              <i class="fas fa-pen-to-square editar-icon"></i>
+              <i class="fas fa-trash eliminar-icon"></i>
+            </td>
+          </tr>
+          <tr>
+            <td><img src="miguel_costa.jpg" alt="Miguel Costa" class="perfil-foto"></td>
+            <td>miguel_costa</td>
+            <td>miguelcosta.pt@gmail.com</td>
+            <td>52.30 €</td>
+            <td>5</td>
+            <td>
+              <i class="fas fa-pen-to-square editar-icon"></i>
+              <i class="fas fa-trash eliminar-icon"></i>
+            </td>
+          </tr>
+          <tr>
+            <td><img src="beatriz_lopes.jpg" alt="Beatriz Lopes" class="perfil-foto"></td>
+            <td>beatriz_lopes</td>
+            <td>bea_lopes98@gmail.com</td>
+            <td>15.00 €</td>
+            <td>1</td>
+            <td>
+              <i class="fas fa-pen-to-square editar-icon"></i>
+              <i class="fas fa-trash eliminar-icon"></i>
+            </td>
+          </tr>
+          <tr>
+            <td><img src="tiago_martins.jpg" alt="Tiago Martins" class="perfil-foto"></td>
+            <td>tiago_martins</td>
+            <td>tiago.martins99@gmail.com</td>
+            <td>87.90 €</td>
+            <td>7</td>
+            <td>
+              <i class="fas fa-pen-to-square editar-icon"></i>
+              <i class="fas fa-trash eliminar-icon"></i>
+            </td>
+          </tr>
+          <tr>
+            <td><img src="carla_rodrigues.jpg" alt="Carla Rodrigues" class="perfil-foto"></td>
+            <td>carla_rodrigues</td>
+            <td>carla.rdrgs@gmail.com</td>
+            <td>33.00 €</td>
+            <td>3</td>
+            <td>
+              <i class="fas fa-pen-to-square editar-icon"></i>
+              <i class="fas fa-trash eliminar-icon"></i>
+            </td>
+          </tr>
+          <tr>
+            <td><img src="diogo_ferreira.jpg" alt="Diogo Ferreira" class="perfil-foto"></td>
+            <td>diogo_ferreira</td>
+            <td>diogo.ferreira90@gmail.com</td>
+            <td>65.00 €</td>
+            <td>6</td>
+            <td>
+              <i class="fas fa-pen-to-square editar-icon"></i>
+              <i class="fas fa-trash eliminar-icon"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- JS Leaflet -->
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-  <script src="animation.js"></script>
 
   <section class="report-problem">
     <div class="report-container">
@@ -52,7 +183,7 @@
         <h2 class="report-title">AveiroSmartPark</h2>
         <p>Avisar a comunidade:</p>
         <div class="report-form">
-          <input type="text" placeholder="Escreva aqui..." />
+          <input type="text" id="reportsearchInput" placeholder="Procurar condutor por email/nome..." />
           <button type="submit" class="send-button-admin">➤</button>
         </div>
       </div>
@@ -61,8 +192,103 @@
       </div>
     </div>
   </section>
-  
+
   <script src="animation.js"></script>
 
+  <style>
+    .table-section {
+      position: relative;
+      margin-bottom: none;
+      padding-bottom: 20px;
+    }
+
+    .table-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('parque2.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: blur(3px);
+      z-index: -1;
+    }
+
+        .tabela-condutores-scroll {
+      max-height: 300px; /* Podes ajustar conforme o espaço disponível */
+      overflow-y: auto;
+      border-radius: 10px;
+    }
+
+    /* Fixar o cabeçalho da tabela */
+    .tabela-condutores thead th {
+      position: sticky;
+      top: 0;
+      background-color: rgba(255, 204, 0); /* amarelinho fixo no topo */
+      color: black;
+      z-index: 2;
+      text-align: left;
+
+    }
+  </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
+    const tableRows = document.querySelectorAll('.tabela-condutores tbody tr');
+    const tbody = document.querySelector('.tabela-condutores tbody');
+
+    function filtrarTabela() {
+      const filter = searchInput.value.toLowerCase();
+
+      tableRows.forEach(row => {
+        const username = row.children[1].textContent.toLowerCase();
+        const email = row.children[2].textContent.toLowerCase();
+
+        if (username.includes(filter) || email.includes(filter)) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+
+    // Evento para clicar na lupa
+    searchButton.addEventListener('click', filtrarTabela);
+
+    // Evento para pressionar Enter no input
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault(); // Impede comportamento padrão (ex: submeter formulário)
+        filtrarTabela();
+      }
+    });
+
+    // (Opcional) Filtrar também enquanto escreve:
+    searchInput.addEventListener('input', filtrarTabela);
+
+    // Evento para apagar utilizador ao clicar no lixo
+    tbody.addEventListener('click', (e) => {
+      if (e.target.classList.contains('eliminar-icon')) {
+        const linha = e.target.closest('tr');
+        if (linha) {
+          const username = linha.children[1].textContent;
+          const confirmar = confirm(`Tens a certeza que queres apagar o utilizador "${username}"?`);
+          if (confirmar) {
+            linha.remove();
+          }
+        }
+      }
+    });
+  });
+</script>
+
+
+
+
+  
 </body>
 </html>
