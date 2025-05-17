@@ -39,16 +39,16 @@
 
 <!-- Lista de Condutores (Tabela) -->
 <section class="table-section">
-  <h2 class="slider-title" style="text-transform: none;">Administração</h2>
+  <h2 class="slider-title" style="text-transform: none; margin-bottom: 55px;">Administração</h2>
 
   <div class="tabela-condutores-container">
     <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Procurar condutor por email/nome..." />
-      <i class="fas fa-search" id="searchButton" style="cursor: pointer;"></i>
+      <input type="text" id="searchCondutores" placeholder="Procurar condutor por email/nome..." />
+      <i class="fas fa-search" id="searchCondutoresBtn" style="cursor: pointer;"></i>
     </div>
     <h3 class="condutores-title">Lista de Condutores:</h3>
     <div class="tabela-condutores-scroll">
-      <table class="tabela-condutores">
+      <table class="tabela-condutores" id="tabelaCondutores">
         <thead>
           <tr>
             <th>Foto de Perfil</th>
@@ -174,7 +174,148 @@
       </table>
     </div>
   </div>
+
+
+  <div class="barra-branca"></div>
+
+
+  <div class="tabela-condutores-container">
+  <div class="search-bar">
+    <input type="text" id="searchParques" placeholder="Procurar parque por nome/email..." />
+    <i class="fas fa-search" id="searchParquesBtn" style="cursor: pointer;"></i>
+  </div>
+  <h3 class="condutores-title">Lista de Parques:</h3>
+  <div class="tabela-condutores-scroll">
+    <table class="tabela-condutores" id="tabelaParques">
+      <thead>
+        <tr>
+          <th>Foto do Parque</th>
+          <th>Nome do Parque</th>
+          <th>Email do fornecedor</th>
+          <th>Lucros do Parque</th>
+          <th>Reservas totais</th>
+          <th>Editar Parque</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="parque1.jpg" alt="Parque Rossio" class="perfil-foto"></td>
+          <td>Parque Rossio</td>
+          <td>rossio.aveiro@parks.pt</td>
+          <td>120.00 €</td>
+          <td>12</td>
+          <td>
+            <i class="fas fa-pen-to-square editar-icon"></i>
+            <i class="fas fa-trash eliminar-icon"></i>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="parque2.jpg" alt="Parque Infante D. Pedro" class="perfil-foto"></td>
+          <td>Parque Infante D. Pedro</td>
+          <td>infante@aveiroparks.com</td>
+          <td>200.00 €</td>
+          <td>20</td>
+          <td>
+            <i class="fas fa-pen-to-square editar-icon"></i>
+            <i class="fas fa-trash eliminar-icon"></i>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="parque3.jpg" alt="Parque Universitário" class="perfil-foto"></td>
+          <td>Parque Universitário</td>
+          <td>ua.parque@aveiro.pt</td>
+          <td>95.00 €</td>
+          <td>9</td>
+          <td>
+            <i class="fas fa-pen-to-square editar-icon"></i>
+            <i class="fas fa-trash eliminar-icon"></i>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="parque4.jpg" alt="Parque Barrocas" class="perfil-foto"></td>
+          <td>Parque Barrocas</td>
+          <td>barrocas.aveiro@parks.pt</td>
+          <td>130.00 €</td>
+          <td>14</td>
+          <td>
+            <i class="fas fa-pen-to-square editar-icon"></i>
+            <i class="fas fa-trash eliminar-icon"></i>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="parque5.jpg" alt="Parque Salinas" class="perfil-foto"></td>
+          <td>Parque Salinas</td>
+          <td>salinas@aveiroparks.com</td>
+          <td>180.00 €</td>
+          <td>18</td>
+          <td>
+            <i class="fas fa-pen-to-square editar-icon"></i>
+            <i class="fas fa-trash eliminar-icon"></i>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="parque6.jpg" alt="Parque Canal Central" class="perfil-foto"></td>
+          <td>Parque Canal Central</td>
+          <td>canal@parkings.pt</td>
+          <td>75.00 €</td>
+          <td>8</td>
+          <td>
+            <i class="fas fa-pen-to-square editar-icon"></i>
+            <i class="fas fa-trash eliminar-icon"></i>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="parque7.jpg" alt="Parque Glicínias" class="perfil-foto"></td>
+          <td>Parque Glicínias</td>
+          <td>glicinias@aveiro.pt</td>
+          <td>250.00 €</td>
+          <td>25</td>
+          <td>
+            <i class="fas fa-pen-to-square editar-icon"></i>
+            <i class="fas fa-trash eliminar-icon"></i>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="parque8.jpg" alt="Parque Estação" class="perfil-foto"></td>
+          <td>Parque Estação</td>
+          <td>estacao.aveiro@parks.com</td>
+          <td>145.00 €</td>
+          <td>15</td>
+          <td>
+            <i class="fas fa-pen-to-square editar-icon"></i>
+            <i class="fas fa-trash eliminar-icon"></i>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="parque9.jpg" alt="Parque Mercado Manuel Firmino" class="perfil-foto"></td>
+          <td>Parque Mercado Manuel Firmino</td>
+          <td>mercado.firmino@aveiro.pt</td>
+          <td>160.00 €</td>
+          <td>17</td>
+          <td>
+            <i class="fas fa-pen-to-square editar-icon"></i>
+            <i class="fas fa-trash eliminar-icon"></i>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="parque10.jpg" alt="Parque Forca-Vouga" class="perfil-foto"></td>
+          <td>Parque Forca-Vouga</td>
+          <td>forcavouga@parks.pt</td>
+          <td>190.00 €</td>
+          <td>21</td>
+          <td>
+            <i class="fas fa-pen-to-square editar-icon"></i>
+            <i class="fas fa-trash eliminar-icon"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
 </section>
+
 
 
   <section class="report-problem">
@@ -209,14 +350,14 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('parque2.jpg');
+      background-image: url('parque12.avif');
       background-size: cover;
       background-position: center;
       filter: blur(3px);
       z-index: -1;
     }
 
-        .tabela-condutores-scroll {
+    .tabela-condutores-scroll {
       max-height: 300px; /* Podes ajustar conforme o espaço disponível */
       overflow-y: auto;
       border-radius: 10px;
@@ -232,22 +373,46 @@
       text-align: left;
 
     }
+
+    .barra-branca {
+      width: 100%;
+      height: 4px;
+      background-color: rgba(255, 255, 255, 0.7);
+      margin-top: 30px;
+      margin-bottom: 12px;
+      border-radius: 10px;
+      box-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1000px;
+      margin-bottom: 40px;
+    }
+
+    .perfil-foto {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px; /* Se quiseres bordas arredondadas suaves. Se quiseres mesmo quadrado puro, usa 0 */
+}
+
   </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.getElementById('searchInput');
-    const searchButton = document.getElementById('searchButton');
-    const tableRows = document.querySelectorAll('.tabela-condutores tbody tr');
-    const tbody = document.querySelector('.tabela-condutores tbody');
-
-    function filtrarTabela() {
-      const filter = searchInput.value.toLowerCase();
-
-      tableRows.forEach(row => {
+    // Funcionalidades para a tabela de Condutores
+    const searchCondutores = document.getElementById('searchCondutores');
+    const searchCondutoresBtn = document.getElementById('searchCondutoresBtn');
+    const tabelaCondutores = document.getElementById('tabelaCondutores');
+    const rowsCondutores = tabelaCondutores.querySelectorAll('tbody tr');
+    
+    function filtrarCondutores() {
+      const filter = searchCondutores.value.toLowerCase();
+      
+      rowsCondutores.forEach(row => {
         const username = row.children[1].textContent.toLowerCase();
         const email = row.children[2].textContent.toLowerCase();
-
+        
         if (username.includes(filter) || email.includes(filter)) {
           row.style.display = '';
         } else {
@@ -255,40 +420,69 @@
         }
       });
     }
-
-    // Evento para clicar na lupa
-    searchButton.addEventListener('click', filtrarTabela);
-
-    // Evento para pressionar Enter no input
-    searchInput.addEventListener('keydown', (e) => {
+    
+    // Eventos para tabela de Condutores
+    searchCondutoresBtn.addEventListener('click', filtrarCondutores);
+    searchCondutores.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
-        e.preventDefault(); // Impede comportamento padrão (ex: submeter formulário)
-        filtrarTabela();
+        e.preventDefault();
+        filtrarCondutores();
       }
     });
-
-    // (Opcional) Filtrar também enquanto escreve:
-    searchInput.addEventListener('input', filtrarTabela);
-
-    // Evento para apagar utilizador ao clicar no lixo
-    tbody.addEventListener('click', (e) => {
-      if (e.target.classList.contains('eliminar-icon')) {
-        const linha = e.target.closest('tr');
-        if (linha) {
-          const username = linha.children[1].textContent;
-          const confirmar = confirm(`Tens a certeza que queres apagar o utilizador "${username}"?`);
-          if (confirmar) {
-            linha.remove();
+    searchCondutores.addEventListener('input', filtrarCondutores);
+    
+    // Funcionalidades para a tabela de Parques
+    const searchParques = document.getElementById('searchParques');
+    const searchParquesBtn = document.getElementById('searchParquesBtn');
+    const tabelaParques = document.getElementById('tabelaParques');
+    const rowsParques = tabelaParques.querySelectorAll('tbody tr');
+    
+    function filtrarParques() {
+      const filter = searchParques.value.toLowerCase();
+      
+      rowsParques.forEach(row => {
+        const nomeparque = row.children[1].textContent.toLowerCase();
+        const email = row.children[2].textContent.toLowerCase();
+        
+        if (nomeparque.includes(filter) || email.includes(filter)) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+    
+    // Eventos para tabela de Parques
+    searchParquesBtn.addEventListener('click', filtrarParques);
+    searchParques.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        filtrarParques();
+      }
+    });
+    searchParques.addEventListener('input', filtrarParques);
+    
+    // Evento para eliminar registros nas duas tabelas
+    document.querySelectorAll('.tabela-condutores tbody').forEach(tbody => {
+      tbody.addEventListener('click', (e) => {
+        if (e.target.classList.contains('eliminar-icon')) {
+          const linha = e.target.closest('tr');
+          if (linha) {
+            // Verifica se é condutor ou parque
+            const isCondutor = linha.closest('#tabelaCondutores') !== null;
+            const nome = linha.children[1].textContent;
+            const tipo = isCondutor ? "utilizador" : "parque";
+            
+            const confirmar = confirm(`Tens a certeza que queres apagar o ${tipo} "${nome}"?`);
+            if (confirmar) {
+              linha.remove();
+            }
           }
         }
-      }
+      });
     });
   });
 </script>
-
-
-
-
   
 </body>
 </html>
