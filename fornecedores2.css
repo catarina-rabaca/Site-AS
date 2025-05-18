@@ -1,0 +1,491 @@
+/* Estilo do Slider - Atualizado com o novo design */
+.fornecedores {
+  color: white;
+  font-family: Poppins, sans-serif;
+}
+
+/* Estilo do Slider */
+.slider-section {
+  padding: 20px 0; /* Reduz o padding para aproximar a imagem de fundo */
+  padding-top: 0;
+  background-color: #1a1a1a; /* Fundo escuro como na imagem */
+  text-align: center;
+  background-image: url('parque2.jpg'); /* Opcional: adicionar imagem de fundo */
+  background-size: cover;
+  background-position: center; /* Ajusta a posição da imagem para o centro */
+  position: relative;
+}
+
+.slider-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Overlay escuro para o fundo */
+  z-index: 0;
+}
+
+.slider-title {
+  background-color: rgba(255, 204, 0); /* Fundo amarelo com mais transparência */
+  font-size: 28px;
+  font-weight: 600px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  color: #000000; /* Amarelo para o título */
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Adicionar ícones de carros ao título */
+.slider-title::before, .slider-title::after {
+  content: '🚗'; /* Ícone de carro */
+  font-size: 24px;
+}
+
+.slider-container {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 60px;
+  z-index: 1;
+  margin-top: 70px; /* Adiciona espaço acima do slider */
+  margin-bottom: 50px; /* Adiciona espaço abaixo do slider */
+}
+
+/* Estilo para o Slick slider */
+.parkCards {
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.parkCards .slick-slide {
+  margin: 10px;
+}
+
+.card {
+  background-color: rgba(255, 238, 179, 0.8); /* Fundo amarelo claro com transparência */
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-size: 16px;
+  margin: 5px 0;
+  color: #333;
+  text-align: left;
+}
+
+.info {
+  font-size: 13px;
+  color: #555;
+  margin: 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-align: left;
+}
+
+.info i {
+  color: #777;
+  font-size: 12px;
+}
+
+.price {
+  margin-top: 8px;
+  font-weight: bold;
+  color: #333;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price-label {
+  font-weight: normal;
+  color: #555;
+}
+
+.price-value {
+  font-weight: bold;
+}
+
+.price span {
+  font-weight: normal;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Personalização das setas do Slick */
+.slick-prev,
+.slick-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 2px solid #ffcb05;
+  width: 40px;
+  height: 40px;
+  z-index: 10;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.slick-prev {
+  left: -50px;
+  border-radius: 0 5px 5px 0;
+}
+
+.slick-next {
+  right: -50px;
+  border-radius: 5px 0 0 5px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #ffcb05;
+  font-size: 24px;
+}
+
+.slick-prev:hover:not(:disabled),
+.slick-next:hover:not(:disabled) {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.slick-prev:hover:not(:disabled):before,
+.slick-next:hover:not(:disabled):before {
+  color: white;
+}
+
+.slick-disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* Setas do slider totalmente amarelas, sem fundo nem borda */
+.slick-prev,
+.slick-next {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  width: 40px;
+  height: 40px;
+  z-index: 10;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #ffcb05 !important;
+  font-size: 25px !important;
+  opacity: 0.9 !important;
+}
+
+.slick-prev:hover:not(:disabled):before,
+.slick-next:hover:not(:disabled):before {
+  color: #ffd700 !important;
+}
+
+
+/*grafico: */
+
+:root {
+    --primary-yellow: #FFCC33;
+    --background-dark: #000000;
+    --card-background: #FFF8E1;
+    --text-white: #FFFFFF;
+    --rossio-color: #20C5B5;
+    --salinas-color: #4B8BF4;
+    --moliceiros-color: #6A5ACD;
+    --praca-color: #F7A139;
+    --ria-color: #F4D942;
+}
+
+body {
+    background-color: var(--background-dark);
+    color: var(--text-white);
+}
+
+.header {
+    padding: 15px;
+    text-align: center;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 204, 0); /* Fundo amarelo com transparência */
+    font-size: 28px;
+    font-weight: 700;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    color: #000000;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-family: 'Poppins', sans-serif;
+    
+    
+}
+
+.header-icon {
+    margin: 0 10px;
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    position: relative;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.navigation-arrows {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.nav-arrow {
+    font-size: 36px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--text-white);
+    padding: 0 10px;
+    transition: transform 0.2s;
+}
+
+.nav-arrow:hover {
+    transform: scale(1.2);
+}
+
+.main-container {
+    display: flex;
+    margin-top: 20px;
+    height: 350px;
+}
+
+.lucros-info {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.lucros-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.lucros-value {
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.evolution-container {
+    display: inline-block;
+    background-color: var(--card-background);
+    padding: 5px 15px;
+    border-radius: 20px;
+    color: var(--background-dark);
+    font-weight: bold;
+}
+
+.positive-evolution {
+    color: green;
+}
+
+.negative-evolution {
+    color: red;
+}
+
+.chart-container {
+    flex: 2;
+    display: flex;
+    flex-direction: row;
+}
+
+.chart-wrapper {
+    width: 45%;
+}
+
+.legend-wrapper {
+    width: 55%;
+    position: relative;
+}
+
+.month-card {
+    background-color: var(--card-background);
+    color: var(--background-dark);
+    border-radius: 30px;
+    padding: 20px;
+    height: calc(100% - 40px);
+    max-width: 600px;
+    margin-top: 20px;
+    min-height: 340px;
+    margin-left: 30px;
+}
+
+.month-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: left;
+    margin-left: 20px
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.legend-color {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.legend-text {
+    flex: 1;
+    font-weight: bold;
+}
+
+.legend-value {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.chart-type-selector {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 3;
+}
+
+.chart-type-button {
+    background-color: var(--card-background);
+    border: none;
+    border-radius: 15px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--background-dark);
+    transition: background-color 0.3s;
+    color:#000000;
+    background-color: #FFF8E1;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-right: 50px;
+}
+
+.chart-type-button:hover {
+    background-color: var(--primary-yellow);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: var(--card-background);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: var(--background-dark);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-weight: bold;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--primary-yellow);
+    border-radius: 5px;
+}
+
+.show {
+    display: block;
+}
+
+.divider {
+    height: 2px;
+    background-color: #ccc;
+    margin: 90px 0;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    position: relative;
+    margin-bottom: -5px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .chart-container {
+        flex-direction: column;
+    }
+    
+    .chart-wrapper, .legend-wrapper {
+        width: 100%;
+    }
+    
+    .chart-wrapper {
+        height: 250px;
+        margin-bottom: 20px;
+    }
+    
+    .main-container {
+        height: auto;
+    }
+}
+.chart-container {
+  justify-content: flex-end;
+  margin-left: 20px;
+}
+

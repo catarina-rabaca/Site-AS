@@ -5,13 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AveiroSmartPark</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="fornecedores.css" />
+  <link rel="stylesheet" href="fornecedores2.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- Slick CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  
+  <!-- jQuery primeiro, depois o Slick JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </head>
 <body>
   <header class="hero">
@@ -32,17 +40,15 @@
     </div>
   </header>
 
- <!-- Slider de Parques -->
-<section class="slider-section">
-  <h2 class="slider-title">OS SEUS PARQUES</h2>
-  <button class="arrow left" id="prevBtn">&#10094;</button>
-  <div class="slider-container">
-    <div class="slider-wrapper" id="slider">
-      <div class="slide">
-        <div class="card">
-          <div class="card-inner">
+  <!-- Slider de Parques com Slick -->
+  <section class="slider-section">
+    <h2 class="slider-title">OS SEUS PARQUES</h2>
+    <div class="slider-container">
+      <div class="parkCards">
+        <div>
+          <div class="card">
             <img src="parque1.jpg" alt="Parque 1">
-            <h3>Parque dos Moliceiros</h3>
+            <h3>Parque dos Lodos</h3>
             <div class="info"><i class="fas fa-users"></i> Lotação máxima: 200</div>
             <div class="info"><i class="fas fa-parking"></i> Lugares Ocupados: 122</div>
             <div class="price">
@@ -51,87 +57,139 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="slide">
-        <div class="card">
-          <img src="parque2.jpg" alt="Parque 2">
-          <h3>Parque das Salinas</h3>
-          <div class="info"><i class="fas fa-users"></i> Lotação máxima: 300</div>
-          <div class="info"><i class="fas fa-parking"></i> Lugares Ocupados: 222</div>
-          <div class="price">
-            <span class="price-label">Preço</span>
-            <span class="price-value">2€<span>/hora</span></span>
-          </div>
-        </div>
-      </div>
-      <div class="slide">
-        <div class="card">
-          <img src="parque3.jpg" alt="Parque 3">
-          <h3>Parque do Rossio</h3>
-          <div class="info"><i class="fas fa-users"></i> Lotação máxima: 50</div>
-          <div class="info"><i class="fas fa-parking"></i> Lugares Ocupados: 50</div>
-          <div class="price">
-            <span class="price-label">Preço</span>
-            <span class="price-value">2,5€<span>/hora</span></span>
-          </div>
-        </div>
-      </div>
-      <div class="slide">
-        <div class="card">
-          <img src="parque4.jpg" alt="Parque 4">
-          <h3>Parque da Praça</h3>
-          <div class="info"><i class="fas fa-users"></i> Lotação máxima: 80</div>
-          <div class="info"><i class="fas fa-parking"></i> Lugares Ocupados: 32</div>
-          <div class="price">
-            <span class="price-label">Preço</span>
-            <span class="price-value">2€<span>/hora</span></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Novos Parques -->
-      <div class="slide">
-        <div class="card">
-          <img src="parque5.jpg" alt="Parque do Fórum">
-          <h3>Parque do Fórum</h3>
-          <div class="info"><i class="fas fa-users"></i> Lotação máxima: 150</div>
-          <div class="info"><i class="fas fa-parking"></i> Lugares Ocupados: 78</div>
-          <div class="price">
-            <span class="price-label">Preço</span>
-            <span class="price-value">1,5€<span>/hora</span></span>
-          </div>
-        </div>
-      </div>
-      <div class="slide">
-        <div class="card">
-          <img src="parque6.jpg" alt="Parque da Baixa de Santo António">
-          <h3>Parque da Baixa</h3>
-          <div class="info"><i class="fas fa-users"></i> Lotação máxima: 180</div>
-          <div class="info"><i class="fas fa-parking"></i> Lugares Ocupados: 104</div>
-          <div class="price">
-            <span class="price-label">Preço</span>
-            <span class="price-value">1,2€<span>/hora</span></span>
-          </div>
-        </div>
-      </div>
-      <div class="slide">
-        <div class="card">
-          <img src="parque7.jpg" alt="Parque Nossa Senhora dos Aflitos">
-          <h3>Parque do Cais</h3>
-          <div class="info"><i class="fas fa-users"></i> Lotação máxima: 100</div>
-            <div class="info"><i class="fas fa-parking"></i> Lugares Ocupados: 67</div>
+        <div>
+          <div class="card">
+            <img src="parque2.jpg" alt="Parque 2">
+            <h3>Parque das Salinas</h3>
+            <div class="info"><i class="fas fa-users"></i> Lotação máxima: 300</div>
+            <div class="info"><i class="fas fa-parking"></i> Lugares Ocupados: 222</div>
             <div class="price">
-            <span class="price-label">Preço</span>
-            <span class="price-value">1€<span>/hora</span></span>
+              <span class="price-label">Preço</span>
+              <span class="price-value">2€<span>/hora</span></span>
             </div>
           </div>
+        </div>
+        <div>
+          <div class="card">
+            <img src="parque3.jpg" alt="Parque 3">
+            <h3>Parque do Rossio</h3>
+            <div class="info"><i class="fas fa-users"></i> Lotação máxima: 50</div>
+            <div class="info"><i class="fas fa-parking"></i> Lugares Ocupados: 50</div>
+            <div class="price">
+              <span class="price-label">Preço</span>
+              <span class="price-value">2,5€<span>/hora</span></span>
+            </div>
           </div>
         </div>
-        <button class="arrow right" id="nextBtn">&#10095;</button>
+        <div>
+          <div class="card">
+            <img src="parque4.jpg" alt="Parque 4">
+            <h3>Parque da Praça</h3>
+            <div class="info"><i class="fas fa-users"></i> Lotação máxima: 80</div>
+            <div class="info"><i class="fas fa-parking"></i> Lugares Ocupados: 32</div>
+            <div class="price">
+              <span class="price-label">Preço</span>
+              <span class="price-value">2€<span>/hora</span></span>
+            </div>
+          </div>
         </div>
-      </section>
+        <div>
+          <div class="card">
+            <img src="parque5.jpg" alt="Parque do Fórum">
+            <h3>Parque do Fórum</h3>
+            <div class="info"><i class="fas fa-users"></i> Lotação máxima: 150</div>
+            <div class="info"><i class="fas fa-parking"></i> Lugares Ocupados: 78</div>
+            <div class="price">
+              <span class="price-label">Preço</span>
+              <span class="price-value">1,5€<span>/hora</span></span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <img src="parque6.jpg" alt="Parque da Baixa de Santo António">
+            <h3>Parque da Baixa</h3>
+            <div class="info"><i class="fas fa-users"></i> Lotação máxima: 180</div>
+            <div class="info"><i class="fas fa-parking"></i> Lugares Ocupados: 104</div>
+            <div class="price">
+              <span class="price-label">Preço</span>
+              <span class="price-value">1,2€<span>/hora</span></span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <img src="parque7.jpg" alt="Parque Nossa Senhora dos Aflitos">
+            <h3>Parque do Cais</h3>
+            <div class="info"><i class="fas fa-users"></i> Lotação máxima: 100</div>
+            <div class="info"><i class="fas fa-parking"></i> Lugares Ocupados: 67</div>
+            <div class="price">
+              <span class="price-label">Preço</span>
+              <span class="price-value">1€<span>/hora</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+<!-- grafico:-->
+ <title>Dashboard de Lucros dos Parques</title>
+    <!-- Inclua o Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <!-- Inclua seus arquivos CSS e JS -->
+    <link rel="stylesheet" href="dashboard-styles.css">
+</head>
+<body>
+    <div class="header">
+        <span class="header-icon">📊</span>
+        ANÁLISES E ESTATÍSTICAS
+        <span class="header-icon">📈</span>
+    </div>
 
+    <div class="dashboard-container">
+        <div class="chart-type-selector">
+            <button onclick="toggleDropdown()" class="chart-type-button">Tipo de Gráfico ▼</button>
+            <div id="chartTypeDropdown" class="dropdown-content">
+                <a href="#" onclick="changeChartType('pie'); return false;">Gráfico Circular</a>
+                <a href="#" onclick="changeChartType('bar'); return false;">Gráfico de Barras</a>
+            </div>
+        </div>
+
+        <div class="lucros-info">
+            <div class="lucros-title">Lucros Mensais Totais:</div>
+            <div class="lucros-value" id="total-lucros">6525.50€</div>
+            <div class="evolution-container">
+                <span id="evolution-icon">📈</span>
+                <span id="evolution-value" class="positive-evolution">11.2%</span>
+            </div>
+        </div>
+
+        <div class="navigation-arrows">
+            <button class="nav-arrow" id="prev-month">❮</button>
+            <button class="nav-arrow" id="next-month">❯</button>
+        </div>
+
+        <div class="main-container">
+            <div class="chart-container">
+                <div class="chart-wrapper">
+                    <canvas id="lucrosChart"></canvas>
+                </div>
+                <div class="legend-wrapper">
+                    <div class="month-card">
+                        <div class="month-title" id="month-title">Março 2025</div>
+                        <div id="legend-container">
+                            <!-- Legend will be populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+    </div>
+
+  <!-- rodapé -->
   <section class="report-problem">
     <div class="report-container">
       <div class="report-text">
@@ -149,45 +207,5 @@
   </section>
 
   <script src="animation.js"></script>
-  <script>
-  const slider = document.getElementById('slider');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-
-  // Count the actual slides
-  const totalSlides = slider.querySelectorAll('.slide').length;
-  let currentIndex = 1; // Start at position 1
-
-  function updateSlider() {
-    // Get the width of a single slide
-    const slideWidth = slider.querySelector('.slide').offsetWidth;
-    
-    // Calculate how much to move the slider
-    const moveX = slideWidth * currentIndex;
-    slider.style.transform = `translateX(-${moveX}px)`;
-
-    // Update button states
-    prevBtn.disabled = currentIndex === 0;
-    nextBtn.disabled = currentIndex >= totalSlides - 4;
-  }
-
-  prevBtn.addEventListener('click', () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      updateSlider();
-    }
-  });
-
-  nextBtn.addEventListener('click', () => {
-    if (currentIndex < totalSlides - 1) {
-      currentIndex++;
-      updateSlider();
-    }
-  });
-
-  // Initialize the slider
-  window.addEventListener('resize', updateSlider);
-  window.addEventListener('load', updateSlider);
-  </script>
 </body>
 </html>

@@ -396,3 +396,271 @@ function finalizarPagamento(local, data, horaEntrada, horaSaida, preco, parkingI
   document.body.appendChild(popupOverlay);
   popupOverlay.style.display = 'flex';
 }
+
+$(document).ready(function(){
+  // Ajustar altura dos cartões para serem todos iguais
+  function equalizeCardHeights() {
+    var maxHeight = 0;
+    $('.parkCards .card').css('height', 'auto'); // Reset heights
+    $('.parkCards .card').each(function() {
+      var h = $(this).outerHeight();
+      if (h > maxHeight) maxHeight = h;
+    });
+    $('.parkCards .card').css('height', maxHeight + 'px');
+  }
+
+  $('.parkCards').on('setPosition', function(){
+    equalizeCardHeights();
+  });
+
+  $('.parkCards').slick({
+    infinite: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    dots: true,
+    draggable: true,
+    swipe: true,
+    touchMove: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+
+  // Chamar ao carregar e ao redimensionar
+  equalizeCardHeights();
+  $(window).on('resize', function(){
+    equalizeCardHeights();
+  });
+});
+
+const monthlyData = [
+  {
+    month: "Janeiro 2025",
+    total: 8990.75,
+    evolution: -2.5,
+    parks: [
+      { name: "Parque do Rossio", value: 2950.50, color: '#20C5B5' },
+      { name: "Parque das Salinas", value: 850.25, color: '#4B8BF4' },
+      { name: "Parque dos Lodos", value: 95.00, color: '#6A5ACD' },
+      { name: "Parque da Praça", value: 890.00, color: '#F7A139' },
+      { name: "Parque do Fórum", value: 480.00, color: '#FF7F50' },
+      { name: "Parque da Baixa", value: 650.00, color: '#9370DB' },
+      { name: "Parque do Cais", value: 420.00, color: '#48D1CC' }
+    ]
+  },
+  {
+    month: "Fevereiro 2025",
+    total: 9430.25,
+    evolution: 4.9,
+    parks: [
+      { name: "Parque do Rossio", value: 3050.25, color: '#20C5B5' },
+      { name: "Parque das Salinas", value: 925.00, color: '#4B8BF4' },
+      { name: "Parque dos Lodos", value: 110.00, color: '#6A5ACD' },
+      { name: "Parque da Praça", value: 950.00, color: '#F7A139' },
+      { name: "Parque do Fórum", value: 525.00, color: '#FF7F50' },
+      { name: "Parque da Baixa", value: 720.00, color: '#9370DB' },
+      { name: "Parque do Cais", value: 500.00, color: '#48D1CC' }
+    ]
+  },
+  {
+    month: "Março 2025",
+    total: 10175.50,
+    evolution: 7.9,
+    parks: [
+      { name: "Parque do Rossio", value: 3262.75, color: '#20C5B5' },
+      { name: "Parque das Salinas", value: 1000.00, color: '#4B8BF4' },
+      { name: "Parque dos Lodos", value: 120.00, color: '#6A5ACD' },
+      { name: "Parque da Praça", value: 1040.50, color: '#F7A139' },
+      { name: "Parque do Fórum", value: 550.00, color: '#FF7F50' },
+      { name: "Parque da Baixa", value: 770.00, color: '#9370DB' },
+      { name: "Parque do Cais", value: 650.00, color: '#48D1CC' }
+    ]
+  },
+  {
+    month: "Abril 2025",
+    total: 11020.80,
+    evolution: 8.3,
+    parks: [
+      { name: "Parque do Rossio", value: 3500.30, color: '#20C5B5' },
+      { name: "Parque das Salinas", value: 1150.00, color: '#4B8BF4' },
+      { name: "Parque dos Lodos", value: 135.50, color: '#6A5ACD' },
+      { name: "Parque da Praça", value: 1170.00, color: '#F7A139' },
+      { name: "Parque do Fórum", value: 600.00, color: '#FF7F50' },
+      { name: "Parque da Baixa", value: 790.00, color: '#9370DB' },
+      { name: "Parque do Cais", value: 675.00, color: '#48D1CC' }
+    ]
+  }
+
+];
+
+
+let currentMonthIndex = 3; // Começar em Março 2025
+let chartType = 'pie';
+let currentChart = null;
+
+// Inicialização
+document.addEventListener('DOMContentLoaded', function() {
+    renderChart();
+    updateLegend();
+    updateTotalDisplay();
+
+    // Event Listeners
+    document.getElementById('prev-month').addEventListener('click', showPreviousMonth);
+    document.getElementById('next-month').addEventListener('click', showNextMonth);
+});
+
+function renderChart() {
+    const ctx = document.getElementById('lucrosChart').getContext('2d');
+    
+    // Destruir o gráfico anterior se existir
+    if (currentChart) {
+        currentChart.destroy();
+    }
+
+    const currentData = monthlyData[currentMonthIndex];
+    const chartData = {
+        labels: currentData.parks.map(park => park.name),
+        datasets: [{
+            data: currentData.parks.map(park => park.value),
+            backgroundColor: currentData.parks.map(park => park.color),
+            borderWidth: 0,
+            hoverOffset: 15
+        }]
+    };
+
+    const config = {
+        type: chartType,
+        data: chartData,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const value = context.raw;
+                            return `${value.toFixed(2)}€`;
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    // Configurações específicas para o gráfico de barras
+  
+
+    currentChart = new Chart(ctx, config);
+}
+
+function updateLegend() {
+    const currentData = monthlyData[currentMonthIndex];
+    const legendContainer = document.getElementById('legend-container');
+    legendContainer.innerHTML = '';
+    
+    currentData.parks.forEach(park => {
+        const legendItem = document.createElement('div');
+        legendItem.className = 'legend-item';
+        
+        const legendColor = document.createElement('div');
+        legendColor.className = 'legend-color';
+        legendColor.style.backgroundColor = park.color;
+        
+        const legendText = document.createElement('div');
+        legendText.className = 'legend-text';
+        legendText.textContent = park.name;
+        
+        const legendValue = document.createElement('div');
+        legendValue.className = 'legend-value';
+        legendValue.textContent = park.value.toFixed(2) + '€';
+        
+        legendItem.appendChild(legendColor);
+        legendItem.appendChild(legendText);
+        legendItem.appendChild(legendValue);
+        legendContainer.appendChild(legendItem);
+    });
+    
+    document.getElementById('month-title').textContent = currentData.month;
+}
+
+function updateTotalDisplay() {
+    const currentData = monthlyData[currentMonthIndex];
+    document.getElementById('total-lucros').textContent = currentData.total.toFixed(2) + '€';
+    
+    const evolutionElement = document.getElementById('evolution-value');
+    evolutionElement.textContent = currentData.evolution + '%';
+    
+    if (currentData.evolution >= 0) {
+        evolutionElement.className = 'positive-evolution';
+        document.getElementById('evolution-icon').textContent = '📈';
+    } else {
+        evolutionElement.className = 'negative-evolution';
+        document.getElementById('evolution-icon').textContent = '📉';
+    }
+}
+
+function showPreviousMonth() {
+    if (currentMonthIndex > 0) {
+        currentMonthIndex--;
+        renderChart();
+        updateLegend();
+        updateTotalDisplay();
+    }
+}
+
+function showNextMonth() {
+    if (currentMonthIndex < monthlyData.length - 1) {
+        currentMonthIndex++;
+        renderChart();
+        updateLegend();
+        updateTotalDisplay();
+    }
+}
+
+function toggleDropdown() {
+    document.getElementById("chartTypeDropdown").classList.toggle("show");
+}
+
+function changeChartType(type) {
+    chartType = type;
+    renderChart();
+    document.getElementById("chartTypeDropdown").classList.remove("show");
+}
+
+// Fechar o dropdown se o usuário clicar fora dele
+window.onclick = function(event) {
+    if (!event.target.matches('.chart-type-button')) {
+        const dropdowns = document.getElementsByClassName("dropdown-content");
+        for (let i = 0; i < dropdowns.length; i++) {
+            const openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
